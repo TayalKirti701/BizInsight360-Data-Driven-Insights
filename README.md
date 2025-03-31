@@ -52,7 +52,7 @@ Generate detailed customer insights
 ## Sample Queries
 
 ### 1. Product performance analysis
-
+```sql
   SELECT 
   order_year,
   product_name,
@@ -65,33 +65,34 @@ Generate detailed customer insights
   END avg_change
   FROM yearly_product_sales
   ORDER BY product_name,order_year
-
+```
 ### 2. Category contribution to sales
-
+```sql
   SELECT category,total_sales,
   SUM(total_sales) OVER () overall_sales,
   CONCAT(ROUND((CAST(total_sales AS float) / SUM(total_sales) OVER ())*100,2),'%') AS 
   contribution
   FROM category_sales 
   ORDER BY total_sales DESC
-
+```
 ### 3. Cumulative sales analysis
-
+```sql
   SELECT 
   order_date,
   total_sales,
   SUM(total_sales) OVER (ORDER BY order_date) AS running_total_sales,
   SUM(avg_price) OVER (ORDER BY order_date) AS moving_average_price
   FROM monthly_sales
-  
+ ``` 
  ### 4. Customer segmentation
+ ```sql
   SELECT 
   COUNT(customer_key) total_customers,
   spending_category
   FROM customer_spending
   GROUP BY spending_category
   ORDER BY total_customers DESC
-
+```
 ## Future Enhancements:
 - Integration with visualization tools (Power BI, Tableau)
 - Enhanced customer segmentation with RFM analysis

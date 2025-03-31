@@ -12,17 +12,17 @@
    - gold.fact_sales - Sales fact table
 
 ## Features 
-### 1.Performance Analysis: 
+### 1. Performance Analysis: 
 Compare product sales across years and against averages
-### 2.Customer Segmentation: 
+### 2. Customer Segmentation: 
  Identify VIP, regular, and new customers
-### 3.Product Categorization:
+### 3. Product Categorization:
  Segment products by cost ranges
-### 4.Category Contribution:
+### 4. Category Contribution:
  Analyze which product categories drive the most sales
-### 5.Temporal Analysis:
+### 5. Temporal Analysis:
 Track sales trends over time with cumulative totals
-### 6.Comprehensive Reporting:
+### 6. Comprehensive Reporting:
 Generate detailed customer insights
 
 
@@ -42,7 +42,7 @@ Generate detailed customer insights
   ```sql```
   USE master;
   GO
-### 5.  Load the data from CSV files as specified in the setup script.
+### 4. Load the data from CSV files as specified in the setup script.
 
 ## How It Works
 1. The SQL Server database stores product, customer, and sales data in a dimensional model
@@ -51,7 +51,7 @@ Generate detailed customer insights
    
 ## Sample Queries
 
-### 1.Product performance analysis
+### 1. Product performance analysis
 
   SELECT 
   order_year,
@@ -84,7 +84,7 @@ Generate detailed customer insights
   SUM(avg_price) OVER (ORDER BY order_date) AS moving_average_price
   FROM monthly_sales
   
- ### 4.Customer segmentation
+ ### 4. Customer segmentation
   SELECT 
   COUNT(customer_key) total_customers,
   spending_category
